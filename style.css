@@ -2,9 +2,9 @@
 :root{--ink:#0b1a1f;--paper:#ebe5d6;--pi:#1b1f22;--yellow:#f2c230;--red:#d6283c;--tape:#5fb7b5;
 --stencil:"Stardos Stencil","Impact","Arial Black",sans-serif;--mono:"Special Elite","Courier New",monospace;--hand:"Caveat","Segoe Script",cursive;color-scheme:dark;box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-behavior:smooth}
+html{scroll-behavior:auto}
 body{margin:0;background:var(--ink);color:var(--paper);font:1.02rem/1.6 var(--mono);overflow-x:hidden}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:150;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+{content:"";position:fixed;inset:0;pointer-events:none;z-index:150;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit}:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.2rem,5vw,3rem)}
 main{padding-top:0}
