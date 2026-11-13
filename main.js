@@ -8,7 +8,7 @@ $('#nav').innerHTML=`<a class="logo" href="#top">${S.name}</a><ul id="nl">${S.na
 $('#mn').onclick=e=>{const o=$('#nav').classList.toggle('open');e.target.setAttribute('aria-expanded',o);e.target.textContent=o?'Close':'Menu'};
 $('#ft').innerHTML=`<div class="wrap"><button class="btn" id="replay" type="button">Replay the intro</button><p>${S.socials.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${t}</a>`).join('')}</p><small>© ${new Date().getFullYear()} ${S.name}. Freelance video editor.</small></div>`;
 document.body.insertAdjacentHTML('beforeend','<div id="bar"></div><div id="tc" aria-hidden="true">00:00:00:00</div><div id="rt" aria-hidden="true"></div>');
-let pg=0;addEventListener('scroll',()=>{if(pg)return;pg=1;requestAnimationFrame(()=>{const m=document.documentElement.scrollHeight-innerHeight;$('#bar').style.transform='scaleX('+(scrollY/(m||1))+')';$('#tc').textContent=tcs(scrollY*14);pg=0})},{passive:true});
+let pg=0;addEventListener('scroll',()=>{if(pg)return;pg=1;requestAnimationFrame(()=>{const m=document.documentElement.scrollHeight-innerHeight;$ln.on('scroll', ...).style.transform='scaleX('+(scrollY/(m||1))+')';$ ln.on('scroll', ...).textContent=tcs(scrollY*14);pg=0})},{passive:true});
 const rt=$('#rt');let mx=0,my=0,cx=0,cy=0;addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
 (function l(){if(Math.abs(mx-cx)+Math.abs(my-cy)>.3){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;rt.style.transform=`translate(${cx}px,${cy}px)`}requestAnimationFrame(l)})();
 document.addEventListener('pointerover',e=>rt.classList.toggle('big',!!e.target.closest('a,button,.card')));
