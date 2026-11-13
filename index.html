@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name | Freelance Video Editor</title>
+<meta name="description" content="Freelance video editor for commercials, music videos, documentaries and YouTube.">
+<link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@700&family=Special+Elite&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lock">
+<div id="pre"><div class="t" id="pct">0%</div><div class="track"><div class="fill" id="fill"></div></div><small id="pnote">Loading</small>
+  <div id="pgo" hidden><button class="btn y big" id="en1" type="button">Enter with sound</button><button class="btn big" id="en0" type="button">Enter silent</button></div></div>
+<header id="nav"></header>
+<main>
+
+<!-- 1. MOVIE INTRO: scroll to play -->
+<section id="top" class="intro">
+ <div class="stage">
+  <canvas id="cv" aria-label="Animated title sequence"></canvas><div class="bar" id="bt"></div><div class="bar" id="bb"></div>
+  <div id="tcd" aria-hidden="true">TC 00:00:00:00</div><div id="flash"></div>
+  <button class="btn sm" id="skip" type="button">Skip intro</button><div id="hint">Scroll</div>
+  <section class="ic pos-l" id="ic1"><h2><mark>Freelance</mark> video editor for commercials &amp; YouTube</h2><p>I cut ads, channels and music videos that hold attention past the first three seconds.</p><a class="btn y" href="#work">View my work</a><a class="btn" href="#contact">Get in touch</a></section>
+  <section class="ic pos-r" id="ic2"><h2><mark>CLASSIFIED</mark> CUTS</h2><p>Pacing is psychological. Every frame cut to control tension and rhythm.</p></section>
+  <section class="ic pos-l" id="ic3"><h2>KINETIC <mark>MOTION</mark> &amp; COLLAGE</h2><p>Mixed-media title sequences, paper-tear textures, and high-energy motion design.</p></section>
+  <section class="ic pos-r" id="ic4"><h2>EVIDENCE ON <mark>TIMELINE</mark></h2><p>Commercial edits, music video sequences, and broadcast packages built for high retention.</p></section>
+  <section class="ic pos-l" id="ic5"><h2>CLIENT <mark>ARCHIVE</mark></h2><p>Delivering cinematic reels and post-production assets for creators and commercial brands.</p></section>
+  <section class="ic" id="ic6"><h2>Roll the <mark>reel</mark></h2><p>Keep scrolling. Everything is on one reel, all the way to the contact page.</p><a class="btn y" href="#showreel">Watch the showreel</a></section>
+ </div>
+</section>
+
+<!-- 2. SHOWREEL -->
+<section id="showreel" class="sec">
+ <div class="bgt" aria-hidden="true">SHOWREEL SHOWREEL</div>
+ <div class="wrap">
+  <p class="hand">the best 90 seconds</p><h2 data-split>Showreel</h2>
+  <div class="lb" id="lb"><video id="reel" muted loop playsinline preload="auto"></video><div class="fb" id="fb"></div><div class="tc" id="htc">TC 00:00:00:00</div><button class="btn y sm" id="rs" type="button">Play with sound</button></div>
+  <p class="cta"><a class="btn y big" href="#work">View my work</a><a class="btn big" href="#contact">Get in touch</a></p>
+ </div>
+</section>
+<div class="band" aria-hidden="true"><div id="b1"></div></div>
+
+<!-- 3. WORK -->
+<section id="work" class="sec">
+ <div class="bgt" aria-hidden="true">WORK WORK WORK</div>
+ <div class="wrap">
+  <p class="hand">curated projects</p><h2 data-split>Selected work</h2>
+  <div class="stkw"><div><h2 id="stl">Commercials</h2><p class="lead">Five niches, one rule: every cut earns its place on the timeline. Open any project for my role, tools and results.</p></div><div id="stk" aria-hidden="true"></div></div>
+  <div id="tabs"></div><div id="groups"></div>
+  <div class="stats" id="stats"></div>
+ </div>
+</section>
+<div class="band b" aria-hidden="true"><div id="b2"></div></div>
+
+<!-- 4. ABOUT -->
+<section id="about" class="sec th-teal">
+ <div class="bgt" aria-hidden="true">ABOUT ABOUT</div>
+ <div class="wrap">
+  <p class="hand">the editor behind the cuts</p><h2 data-split>Cut from a love of stories</h2>
+  <div class="two" style="margin-top:2.5rem">
+   <figure class="photo tear"><img src="assets/portrait.jpg" alt="Portrait of Your Name" onerror="this.remove()"></figure>
+   <div>
+    <p class="lead">I have been editing for nine years, starting with friends’ short films and growing into commercials, music videos and long-form documentaries for brands, artists and creators.</p>
+    <p>I work remotely with producers and directors around the world, and I stay close to the project from first assembly to final delivery.</p>
+    <p class="quote">“A good cut is invisible. A great cut is felt.”</p>
+    <p>My philosophy is simple: find the story, protect the pacing, and never let a shot stay on screen longer than it deserves.</p>
+   </div>
+  </div>
+  <h3 style="margin-top:4rem">On my timeline</h3>
+  <p class="lead">Editing, color, motion, sound and gear. Every track is something I use on real projects.</p>
+  <div id="tracks" class="tr"></div>
+  <h3 style="margin-top:4rem">Off the timeline</h3>
+  <div class="notes">
+   <div class="note"><b>Film photography</b><p>I shoot 35mm on weekends. It keeps my eye honest.</p></div>
+   <div class="note"><b>Crate digging</b><p>Old records are where my edit-to-beat instincts come from.</p></div>
+   <div class="note"><b>Long walks</b><p>Most of my best cuts were solved away from the screen.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- 5. SERVICES -->
+<section id="services" class="sec th-red">
+ <div class="bgt" aria-hidden="true">SERVICES SERVICES</div>
+ <div class="wrap">
+  <p class="hand">post-production, start to finish</p><h2 data-split>What I do</h2>
+  <p class="lead">Send me footage. Get back a finished film, ready to publish.</p>
+  <div id="sv"></div>
+  <div class="sound tear" style="margin-top:4rem"><div><h2>Sound design</h2><p class="lead">Half of what people feel in a video is what they hear.</p><ul id="snl"></ul></div><div id="wave" class="wave" aria-hidden="true"></div></div>
+ </div>
+</section>
+
+<!-- 6. TESTIMONIALS -->
+<section id="proof" class="sec th-yellow">
+ <div class="bgt" aria-hidden="true">PROOF PROOF</div>
+ <div class="wrap"><p class="hand">kind words</p><h2 data-split>What clients say</h2><div id="qs"></div></div>
+ <div class="band b" style="margin-top:4rem" aria-label="Brands I have worked with"><div id="lg"></div></div>
+</section>
+
+<!-- 7. CONTACT -->
+<section id="contact" class="sec">
+ <div class="bgt" aria-hidden="true">CONTACT CONTACT</div>
+ <div class="wrap">
+  <p class="hand">tell me about your project</p><h2 data-split>Start a project</h2>
+  <div class="cg">
+   <form id="cf" novalidate>
+    <div class="fields">
+     <label>Name<input name="name" required autocomplete="name"></label>
+     <label>Email<input name="email" type="email" required autocomplete="email"></label>
+     <label>Project type<select name="type" required><option>Commercial</option><option>Music video</option><option>Documentary</option><option>Social media</option><option>Corporate</option><option>Something else</option></select></label>
+     <label>Budget and timeline<input name="budget" placeholder="e.g. $2,000, needed in 3 weeks"></label>
+     <label>Message<textarea name="msg" required></textarea></label>
+     <button class="btn y big" type="submit">Send inquiry</button><p id="fm" role="alert"></p>
+    </div>
+    <div class="done" aria-live="polite">Received. I reply within 24 hours.</div>
+   </form>
+   <div id="dm"><h2>Or reach me directly</h2></div>
+  </div>
+ </div>
+</section>
+</main>
+<footer id="ft"></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/intro.js"></script>
+</body>
+</html>
