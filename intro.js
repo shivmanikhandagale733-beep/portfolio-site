@@ -3,7 +3,7 @@
 const CONFIG={frameCount:120,framePath:n=>'frames/frame_'+String(n).padStart(3,'0')+'.webp',ratio:2.39,mobileRatio:1.5,title:SITE.name},
 $=s=>document.querySelector(s),N=CONFIG.frameCount,cv=$('#cv'),ctx=cv.getContext('2d'),stage=$('.stage'),tcEl=$('#tcd'),
 rm=matchMedia('(prefers-reduced-motion: reduce)').matches,imgs=[],state={f:0},punch={k:0};let proc=false;
-function layout(){const dpr=Math.min(devicePixelRatio||1,innerWidth<800?1:1.5),vw=stage.clientWidth,vh=stage.clientHeight,r=vw<700?CONFIG.mobileRatio:CONFIG.ratio,W=vw,H=Math.min(vh,Math.round(vw/r));
+function layout(){const dpr=1),vw=stage.clientWidth,vh=stage.clientHeight,r=vw<700?CONFIG.mobileRatio:CONFIG.ratio,W=vw,H=Math.min(vh,Math.round(vw/r));
  cv.style.width=W+'px';cv.style.height=H+'px';cv.width=W*dpr|0;cv.height=H*dpr|0;const b=Math.max(0,(vh-H)/2);$('#bt').style.height=$('#bb').style.height=b+'px';stage.style.setProperty('--bar',b+'px');render(true)}
 function drawImg(im){const cw=cv.width,ch=cv.height,s=Math.max(cw/im.naturalWidth,ch/im.naturalHeight),w=im.naturalWidth*s,h=im.naturalHeight*s;ctx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h)}
 var GR,seed=7;function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
@@ -73,7 +73,7 @@ function init(){
   gsap.to(mk,{'--u':1,duration:.35,delay:.2,stagger:.14,ease:'power2.out'});
   gsap.fromTo('#flash',{opacity:.1},{opacity:0,duration:.2});
   gsap.fromTo(punch,{k:1},{k:0,duration:.55,ease:'power3.out'})}
- function hide(i){const el=els[i];gsap.killTweensOf(el);gsap.to(el,{autoAlpha:0,y:-24,scale:.97,filter:'blur(6px)',duration:rm?.01:.25,ease:'power1.in'})}
+ function hide(i){const el=els[i];gsap.killTweensOf(el);gsap.to(el,{autoAlpha:0,y:-24,scale:.97,,duration:rm?.01:.25,ease:'power1.in'})}
  ScrollTrigger.create({trigger:'#top',start:'top top',end:'bottom bottom',onUpdate:s=>{const p=s.progress;hint.style.opacity=p>.02?0:'';
   starts.forEach((a,i)=>{const vis=p>=a&&p<(i===5?1.01:a+.14);if(vis!==!!shown[i]){shown[i]=vis;vis?slam(i):hide(i)}})}});
  $('#skip').onclick=()=>LN.scrollTo('#showreel',{duration:2.2});
