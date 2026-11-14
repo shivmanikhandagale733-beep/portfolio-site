@@ -8,7 +8,7 @@ $('#nav').innerHTML=`<a class="logo" href="#top">${S.name}</a><ul id="nl">${S.na
 $('#mn').onclick=e=>{const o=$('#nav').classList.toggle('open');e.target.setAttribute('aria-expanded',o);e.target.textContent=o?'Close':'Menu'};
 $('#ft').innerHTML=`<div class="wrap"><button class="btn" id="replay" type="button">Replay the intro</button><p>${S.socials.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${t}</a>`).join('')}</p><small>© ${new Date().getFullYear()} ${S.name}. Freelance video editor.</small></div>`;
 document.body.insertAdjacentHTML('beforeend','<div id="bar"></div><div id="tc" aria-hidden="true">00:00:00:00</div><div id="rt" aria-hidden="true"></div>');
-let pg=0;addEventListener('scroll',()=>{if(pg)return;pg=1;requestAnimationFrame(()=>{const m=document.documentElement.scrollHeight-innerHeight;$ln.on('scroll', ...).style.transform='scaleX('+(scrollY/(m||1))+')';$ ln.on('scroll', ...).textContent=tcs(scrollY*14);pg=0})},{passive:true});
+const barEl=$('#bar'),tcHud=$('#tc');
 const rt=$('#rt');let mx=0,my=0,cx=0,cy=0;addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
 (function l(){if(Math.abs(mx-cx)+Math.abs(my-cy)>.3){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;rt.style.transform=`translate(${cx}px,${cy}px)`}requestAnimationFrame(l)})();
 document.addEventListener('pointerover',e=>rt.classList.toggle('big',!!e.target.closest('a,button,.card')));
@@ -77,29 +77,4 @@ services(){
  $('#wave').innerHTML=Array.from({length:44},(_,i)=>`<i style="--i:${i};--h:${20+Math.abs(Math.sin(i*1.7))*80|0}%"></i>`).join('');
  $('#snl').innerHTML=SOUND.map(t=>`<li>${t}</li>`).join('')},
 testimonials(){
- $('#qs').innerHTML=QUOTES.map(([q,n,r],i)=>`<blockquote class="q" style="--rot:${i%2?1.4:-1.4}deg"><p>“${q}”</p><footer><span class="hand">${n}</span><br>${r}</footer></blockquote>`).join('');
- band($('#lg'),LOGOS.map(l=>l+' / ').join(''))},
-contact(){
- $('#dm').innerHTML=`<a class="btn y big" href="mailto:${S.email}">${S.email}</a><p>${S.socials.map(([t,u])=>`<a class="strip" href="${u}" target="_blank" rel="noopener">${t}</a>`).join(' ')}</p>`;
- const f=$('#cf'),m=$('#fm');
- f.onsubmit=async e=>{e.preventDefault();if(!f.checkValidity()){f.reportValidity();return}const d=Object.fromEntries(new FormData(f)),ok=()=>f.classList.add('sent'),bad=()=>m.textContent='That did not send. Email me directly at '+S.email+'.';
-  if(S.formAction){try{(await fetch(S.formAction,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)})).ok?ok():bad()}catch{bad()}}
-  else{location.href=`mailto:${S.email}?subject=${encodeURIComponent('New project: '+d.type)}&body=${encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\nProject: ${d.type}\nBudget and timeline: ${d.budget}\n\n${d.msg}`)}`;ok()}}}
-};
-Object.values(PG).forEach(f=>f());
-watch();$$('.sec').forEach(s=>s.insertAdjacentHTML('afterbegin','<i class="edge" aria-hidden="true"></i>'));
 
-/* ---------- one continuous scroll: smooth scroll + scroll-driven motion ---------- */
-gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
-const ln=new Lenis({lerp:.1,wheelMultiplier:.9});window.LN=ln;ln.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>ln.raf(t*1000));gsap.ticker.lagSmoothing(0);ln.stop();
-document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]'),h=a&&a.getAttribute('href');if(!h||h==='#')return;e.preventDefault();$('#nav').classList.remove('open');$('#mn').textContent='Menu';ln.scrollTo(h,{duration:1.6})});
-$('#replay').onclick=()=>ln.scrollTo(0,{duration:3.2});
-$$('main>section[id]').forEach(s=>ScrollTrigger.create({trigger:s,start:'top 55%',end:'bottom 55%',onToggle:t=>{if(t.isActive)$$('#nl a').forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+s.id))}}));
-innerWidth>800&&$$('.bgt').forEach(t=>gsap.fromTo(t,{xPercent:5},{xPercent:-45,ease:'none',scrollTrigger:{trigger:t.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
-innerWidth>800&&$$('.card').forEach((c,i)=>gsap.fromTo(c,{y:60},{y:-40-(i%3)*20,ease:'none',scrollTrigger:{trigger:c,start:'top bottom',end:'bottom top',scrub:true}}));
-gsap.fromTo('#lb',{scale:.8,rotate:-3},{scale:1,rotate:0,ease:'none',scrollTrigger:{trigger:'#showreel',start:'top 85%',end:'top 25%',scrub:true}});
-let ts=1;const tws=$$('.band>div').map((d,i)=>gsap.fromTo(d,{xPercent:i%2?-50:0},{xPercent:i%2?0:-50,ease:'none',repeat:-1,duration:30}));
-ScrollTrigger.create({onUpdate:s=>{ts=Math.max(ts,1+Math.min(Math.abs(s.getVelocity())/300,9))}});gsap.ticker.add(()=>{ts+=(1-ts)*.06;tws.forEach(t=>t.timeScale(ts))});
-new IntersectionObserver(([e])=>e.isIntersecting?$('#reel').play().catch(()=>{}):$('#reel').pause()).observe($('#reel'));
-const h=location.hash.slice(1);if(h&&P.some(p=>p.id===h))openP(h);
-})();
